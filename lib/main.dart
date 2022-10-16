@@ -27,7 +27,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home:  ContactList(),
+      home:  LoginScreen(),
+      //ContactList(),
       //RegistrationForm(),
       //LoginScreen(),
       //MessngerScreen()

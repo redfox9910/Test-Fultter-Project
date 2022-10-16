@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled/messenger_Screen.dart';
 import 'package:untitled/registrationform.dart';
@@ -131,13 +132,43 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 20,
                 ),
                 TextButton(
-                  onPressed: () {
+                  onPressed: () async {
+
                     if (emailCon.text == "fox" && passwordCon.text == "99") {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => MessngerScreen()),
-                      );
+                      Flushbar(
+                        titleText: Text(
+                            "Login state",
+                            style: TextStyle(fontSize: 18.0, color: Colors.black)
+                        ),
+                         messageText: Text(
+                           "you have successfully login ^_^",
+                           style: TextStyle(fontSize: 15.0, color: Colors.black),
+                         ),
+                        backgroundGradient: LinearGradient(colors: [Colors.blue[900]!, Colors.white]),
+                        backgroundColor: Colors.white,
+                        duration:  Duration(seconds: 2),
+                        icon: Icon(
+                          Icons.check_circle,
+                          color: Colors.white,
+                        ),
+                        leftBarIndicatorColor: Colors.white,
+                        borderRadius: BorderRadius.circular(8),
+                        //margin: EdgeInsets.all(8),
+                        flushbarPosition: FlushbarPosition.TOP,
+                         flushbarStyle: FlushbarStyle.GROUNDED,
+                        boxShadows: [BoxShadow(color: Colors.blue[800]!, offset: Offset(0.0, 2.0), blurRadius: 3.0,)],
+                      )..show(context);
+                      await Future.delayed(const Duration(seconds: 2), (){
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MessngerScreen()),
+                        );
+
+                        });
+
+
                     } else {
                       showDialog<String>(
                         context: context,
